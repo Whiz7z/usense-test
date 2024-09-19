@@ -21,7 +21,7 @@ const CurrencyConverter = () => {
     let value;
     try {
       value = Number(number);
-      setAmount1(value);
+      setAmount1(number);
       const rate = getExchangeRate(currency1, currency2);
       setAmount2((value * rate).toFixed(4));
     } catch (e) {
@@ -34,7 +34,7 @@ const CurrencyConverter = () => {
     let value;
     try {
       value = Number(number);
-      setAmount2(value);
+      setAmount2(number);
       const rate = getExchangeRate(currency2, currency1);
       setAmount1((value * rate).toFixed(4));
     } catch (e) {
