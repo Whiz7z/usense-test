@@ -1,5 +1,6 @@
 import {create} from "zustand";
 import { persist } from "zustand/middleware";
+const ACCESS_KEY = import.meta.env.VITE_REACT_APP_ACCESS_KEY;
 
 
 const useExchangeRateStore = create(
@@ -11,7 +12,7 @@ const useExchangeRateStore = create(
       fetchRates: async () => {
         try {
           const responseUsd = await fetch(
-            "https://v6.exchangerate-api.com/v6/8878933b7f6e7925f04c7099/pair/USD/UAH"
+            `https://v6.exchangerate-api.com/v6/${ACCESS_KEY}/pair/USD/UAH`
           );
           const dataUsd = await responseUsd.json();
           if (dataUsd.result === "success") {
@@ -21,7 +22,7 @@ const useExchangeRateStore = create(
           }
 
           const responseEur = await fetch(
-            "https://v6.exchangerate-api.com/v6/8878933b7f6e7925f04c7099/pair/EUR/UAH"
+            `https://v6.exchangerate-api.com/v6/${ACCESS_KEY}/pair/EUR/UAH`
           );
           const dataEur = await responseEur.json();
           if (dataEur.result === "success") {
@@ -31,7 +32,7 @@ const useExchangeRateStore = create(
           }
 
           const responseGBP = await fetch(
-            "https://v6.exchangerate-api.com/v6/8878933b7f6e7925f04c7099/pair/GBP/UAH"
+            `https://v6.exchangerate-api.com/v6/${ACCESS_KEY}/pair/GBP/UAH`
           );
           const dataGbp = await responseGBP.json();
           if (dataGbp.result === "success") {
